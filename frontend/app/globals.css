@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Responsive Design Setup (Mobile-First)
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  This project uses a mobile-first approach. Styles defined outside of media queries
+  target mobile devices by default. Then, we use min-width media queries to add or
+  adjust styles for larger screens (tablets, desktops).
+
+  Tailwind's default breakpoints are:
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+  - xl: 1280px
+  - 2xl: 1536px
+
+  For component-specific responsive styles, it is best practice to use Tailwind's
+  responsive prefixes directly in your HTML/JSX.
+  Example: <div class="text-center lg:text-left">...</div>
+*/
+
+:root {
+  --background: #0C5C45;  /* Dark Green */
+  --foreground: #FCFCF7; /* Off-white */
+
+  --color-primary: #0C5C45; /* Orange */
+  --color-dark-blue: #013F54;
+  --color-green: #5BA529;
+  --color-dark-green: #0C5C45;
+  --color-beige: #C89364;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #013F54; */
+    --background: #C89364;
     --foreground: #ededed;
+    
+    /* Re-define colors for dark mode if needed, for now using the same */
+    --color-primary: #0C5C45;
+    --color-dark-blue: #013F54;
+    --color-green: #5BA529;
+    --color-dark-green: #0C5C45;
+    --color-beige: #C89364;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  color: var(--color-dark-white);
+}
+
+/* 
+  Base responsive typography. This helps with accessibility (like 400% zoom)
+  by allowing `rem` units to scale with the viewport.
+*/
+html {
+  /* Base font size for mobile */
+  font-size: 14px;
+}
+
+/* Tablet breakpoint (md: 768px) */
+@media (min-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Desktop breakpoint (lg: 1024px) */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-green);
+  border-radius: 2px;
+  height: 40px;
 }
