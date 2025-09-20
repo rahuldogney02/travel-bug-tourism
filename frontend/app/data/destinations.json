@@ -1,0 +1,226 @@
+
+{
+  "destinations": [
+    {
+      "slug": "goa",
+      "title": "Royal Goa Packages - Travel Bug Tourism",
+      "description": "Discover the tropical paradise of Goa with our curated Royal Goa Bliss Packages. Enjoy beaches, nightlife, culture, and adventure.",
+      "banner": {
+        "title": "Goa Bliss Packages",
+        "subtitle": "Where Dreams Meet Tropical Reality",
+        "backgroundImage": "/storage/uploads/destination/header-images/Goa_banner_1740629251.svg"
+      },
+      "about": {
+        "title": "About Goa Tour Packages",
+        "description": "Discover the tropical paradise of Goa, where golden beaches, vibrant nightlife, and rich cultural heritage come together to create the perfect getaway. From relaxing on sun-kissed shores and exploring ancient forts to immersing in vibrant markets and indulging in local seafood, Goa offers an unforgettable escape filled with adventure, relaxation, and excitement."
+      },
+      "dreamPackages": {
+        "title": "Goa Dream Packages",
+        "subtitle": "Curated packages for your dream vacation, loved by travelers worldwide.",
+        "packages": [
+          {
+            "tag": "Best Selling",
+            "image": "/storage/uploads/package/primary-images/d1_1737376533.png",
+            "location": "Goa",
+            "title": "Goa Bliss Escape",
+            "price": "Starting 8999",
+            "duration": "2N/3D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-goa/package/goa-bliss-escape"
+          },
+          {
+            "image": "/storage/uploads/package/primary-images/d5_1737376946.png",
+            "location": "Goa",
+            "title": "Golden Sands Getway",
+            "price": "Starting 10000",
+            "duration": "4N/5D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-goa/package/golden-sands-getway"
+          },
+          {
+            "image": "/storage/uploads/package/primary-images/d3_1737377141.png",
+            "location": "Goa",
+            "title": "Goa Adventure Trail",
+            "price": "Starting 8999",
+            "duration": "3N/4D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-goa/package/goa-adventure-trail"
+          }
+        ]
+      },
+      "sliderSections": [
+        {
+          "title": "Goa: A Journey of Sun, Sea, and Culture",
+          "subtitle": "Discover Goa’s allure, where pristine beaches, rich Portuguese heritage, and vibrant nightlife come together. From the tranquil vibes of its quiet beaches to the energetic rhythm of its nightlife, Goa offers the perfect escape for every traveler. Explore the lively markets, indulge in delicious seafood, and experience the colorful festivals that make Goa a must-visit destination.",
+          "slides": [
+            {
+              "image": "/storage/uploads/section-entity/ga1_1737213925.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Baga Beach" },
+                { "icon": "/storage/uploads/custom-icons/beach_1737213458.svg", "text": "Chilling" }
+              ],
+              "description": "A lively beach known for its thrilling water sports, beach shacks, and vibrant nightlife."
+            },
+            {
+              "image": "/storage/uploads/section-entity/ga2_1737213980.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Old Goa" },
+                { "icon": "/storage/uploads/custom-icons/Surfing_1737213495.svg", "text": "Surfing" }
+              ],
+              "description": "The heart of Goa’s colonial past, with stunning churches and colonial-era buildings."
+            },
+            {
+              "image": "/storage/uploads/section-entity/ga3_1737214029.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Palolem" },
+                { "icon": "/storage/uploads/custom-icons/Party_1737213478.svg", "text": "Party" }
+              ],
+              "description": "A serene beach, perfect for relaxation, kayaking, and enjoying the natural beauty of Goa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ooty",
+      "title": "Royal Ooty Packages - Travel Bug Tourism",
+      "description": "Enjoy Ooty’s charming hills, blooming gardens, and colonial architecture.",
+      "banner": {
+        "title": "Ooty Hills Packages",
+        "subtitle": "Enjoy Ooty’s charming hills, blooming gardens, and colonial architecture.",
+        "backgroundImage": "/storage/uploads/destination/header-images/Ooty_banner_1740629959.svg"
+      },
+      "about": {
+        "title": "About Ooty Tour Packages",
+        "description": "Nestled in the Nilgiri Hills, Ooty is a picture-perfect hill station. Stroll through its lush botanical gardens, take a ride on the toy train, or visit the stunning tea plantations. Ooty’s charm is timeless and inviting."
+      },
+      "dreamPackages": {
+        "title": "Royal Ooty Dream Packages",
+        "subtitle": "Curated packages for your dream vacation, loved by travelers worldwide.",
+        "packages": [
+          {
+            "image": "/storage/uploads/package/primary-images/oo1_1740630482.png",
+            "location": "Royal Ooty",
+            "title": "Ooty Bliss Escape",
+            "price": "Starting 9999",
+            "duration": "3N/4D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-bliss-escape"
+          },
+          {
+            "image": "/storage/uploads/package/primary-images/oo2_1740630494.png",
+            "location": "Royal Ooty",
+            "title": "Ooty Dream Getaway",
+            "price": "Starting 9999",
+            "duration": "4N/5D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-dream-getaway"
+          },
+          {
+            "image": "/storage/uploads/package/primary-images/oo3_1740630505.png",
+            "location": "Royal Ooty",
+            "title": "Ooty Adventure Expedition",
+            "price": "Starting 9999",
+            "duration": "3N/4D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-adventure-expedition"
+          },
+          {
+            "image": "/storage/uploads/package/primary-images/oo4_1740630516.png",
+            "location": "Royal Ooty",
+            "title": "Ooty Royal Retreat",
+            "price": "Starting 9999",
+            "duration": "5N/6D",
+            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-royal-retreat"
+          }
+        ]
+      },
+      "sliderSections": [
+        {
+          "title": "Adventures Amidst the Hills",
+          "subtitle": "From serene lakes to thrilling treks, Ooty is a nature lover’s haven.",
+          "slides": [
+            {
+              "image": "/storage/uploads/section-entity/ooa1_1737222797.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Nilgiri" },
+                { "icon": "/storage/uploads/custom-icons/Railway Ride_1737219529.svg", "text": "Railway Ride" }
+              ],
+              "description": "Experience a picturesque train ride through misty hills and lush green valleys."
+            },
+            {
+              "image": "/storage/uploads/section-entity/ooa2_1737222835.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Ooty Lake" },
+                { "icon": "/storage/uploads/custom-icons/Boating_1737219084.svg", "text": "Boating" }
+              ],
+              "description": "Glide through the tranquil waters of Ooty Lake surrounded by the Nilgiris."
+            },
+            {
+              "image": "/storage/uploads/section-entity/ooa3_1737222875.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Doddabetta" },
+                { "icon": "/storage/uploads/custom-icons/Trek_1737219469.svg", "text": "Trek" }
+              ],
+              "description": "Hike up to the highest peak in the Nilgiris and soak in breathtaking panoramic views."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mysore",
+      "title": "Royal Mysore Packages - Travel Bug Tourism",
+      "description": "Uncover Mysore’s royal palaces, vibrant traditions, and timeless charm.",
+      "banner": {
+        "title": "Mysore Misty Packages",
+        "subtitle": "Uncover Mysore’s royal palaces, vibrant traditions, and timeless charm.",
+        "backgroundImage": "/storage/uploads/destination/header-images/Mysore_banner_1740629876.svg"
+      },
+      "about": {
+        "title": "About Mysore Tour Packages",
+        "description": "Mysore is a cultural gem of South India, known for its royal heritage. Visit the magnificent Mysore Palace, enjoy the grandeur of the Dasara Festival, and shop for silk sarees. A city where tradition meets modernity."
+      },
+      "dreamPackages": {
+        "title": "Royal Mysore Dream Packages",
+        "subtitle": "Curated packages for your dream vacation, loved by travelers worldwide.",
+        "packages": []
+      },
+      "sliderSections": [
+        {
+          "title": "Discover the Essence of Royal Heritage",
+          "subtitle": "Dive into Mysore’s cultural, royal, and spiritual experiences.",
+          "slides": [
+            {
+              "image": "/storage/uploads/section-entity/msa1_1737222374.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Mysore Palace" },
+                { "icon": "/storage/uploads/custom-icons/Exploring_1737219430.svg", "text": "Exploring" }
+              ],
+              "description": "Walk through the opulent halls of one of India’s most iconic royal residences."
+            },
+            {
+              "image": "/storage/uploads/section-entity/msa2_1737222415.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Devaraja" },
+                { "icon": "/storage/uploads/custom-icons/Shopping_1737219452.svg", "text": "Shopping" }
+              ],
+              "description": "Explore colorful stalls offering fresh flowers, Mysore silk, and aromatic spices."
+            },
+            {
+              "image": "/storage/uploads/section-entity/msa3_1737222457.png",
+              "info": [
+                { "icon": "/storage/uploads/custom-icons/clock_1737213425.svg", "text": "7 Hours" },
+                { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Chamundi Hills" },
+                { "icon": "/storage/uploads/custom-icons/Trek_1737219469.svg", "text": "Trek" }
+              ],
+              "description": "Climb the sacred Chamundi Hills and enjoy panoramic views of Mysore city."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

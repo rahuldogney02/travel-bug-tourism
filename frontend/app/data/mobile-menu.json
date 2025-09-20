@@ -1,0 +1,94 @@
+[
+  {
+    "title": "Destinations",
+    "type": "dropdown",
+    "sub_menu": {
+      "domestic": {
+        "title": "Domestic",
+        "links": [
+          { "href": "/category/domestic/destination/goa", "title": "Goa" },
+          { "href": "/category/domestic/destination/kerala", "title": "Kerala" },
+          { "href": "/category/domestic/destination/himachal-pradesh", "title": "Himachal Pradesh" },
+          { "href": "/category/domestic/destination/jammu-kashmir", "title": "Jammu & Kashmir" },
+          { "href": "/category/domestic/destination/ladakh", "title": "Ladakh" },
+          { "href": "/category/domestic/destination/delhi-agra-jaipur", "title": "Delhi - Agra - Jaipur" },
+          { "href": "/category/domestic/destination/rajasthan", "title": "Rajasthan" },
+          { "href": "/category/domestic/destination/coorg", "title": "Coorg" },
+          { "href": "/category/domestic/destination/andaman", "title": "Andaman" },
+          { "href": "/category/domestic/destination/kodaikanal", "title": "Kodaikanal" },
+          { "href": "/category/domestic/destination/mysore", "title": "Mysore" },
+          { "href": "/category/domestic/destination/ooty", "title": "Ooty" },
+          { "href": "/category/domestic/destination/wayanad", "title": "Wayanad" },
+          { "href": "/category/domestic/destination/amritsar", "title": "Amritsar" },
+          { "href": "/category/domestic/destination/darjeeling-gangtok", "title": "Darjeeling-Gangtok" },
+          { "href": "/category/domestic/destination/tirupati", "title": "Tirupati" },
+          { "href": "/category/domestic/destination/shirdi", "title": "Shirdi" },
+          { "href": "/category/domestic/destination/mumbai", "title": "Mumbai" },
+          { "href": "/category/domestic/destination/hyderabad", "title": "Hyderabad" }
+        ]
+      },
+      "international": {
+        "title": "International",
+        "links": [
+          { "href": "/category/international/destination/bali", "title": "Bali" },
+          { "href": "/category/international/destination/malaysia", "title": "Malaysia" },
+          { "href": "/category/international/destination/singapore", "title": "Singapore" },
+          { "href": "/category/international/destination/maldives", "title": "Maldives" },
+          { "href": "/category/international/destination/sri-lanka", "title": "Sri Lanka" },
+          { "href": "/category/international/destination/dubai", "title": "Dubai" },
+          { "href": "/category/international/destination/bangkok", "title": "Bangkok" },
+          { "href": "/category/international/destination/europe", "title": "Europe" },
+          { "href": "/category/international/destination/thailand", "title": "Thailand" },
+          { "href": "/category/international/destination/vietnam", "title": "Vietnam" }
+        ]
+      }
+    }
+  },
+  {
+    "title": "Trips & Tours",
+    "type": "dropdown",
+    "links": [
+      { "href": "/corporate-tour", "title": "Corporate Tours" },
+      { "href": "/category/weekend-trips", "title": "Weekend Trips" },
+      { "href": "/category/honeymoon-packages", "title": "Honeymoon Packages" }
+    ]
+  },
+  {
+    "title": "Special Offers",
+    "type": "dropdown",
+    "links": [
+      { "href": "/category/any-festival", "title": "Any Festival" },
+      { "href": "/gift-cards", "title": "Gift Cards" }
+    ]
+  },
+  {
+    "href": "/",
+    "title": "Home",
+    "type": "link"
+  },
+  {
+    "href": "/about-us",
+    "title": "About Us",
+    "type": "link"
+  },
+  {
+    "href": "/blogs",
+    "title": "News & Blogs",
+    "type": "link"
+  },
+  {
+    "href": "/gallery",
+    "title": "Gallery",
+    "type": "link"
+  },
+  {
+    "href": "/contact-us",
+    "title": "Contact Us",
+    "type": "link"
+  },
+  {
+    "href": "/privacy-policy",
+    "title": "Privacy Policy",
+    "type": "link"
+  }
+]

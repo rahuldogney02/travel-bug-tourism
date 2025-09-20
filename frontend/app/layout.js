@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Topbar from "./components/layout/Topbar";
 import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +21,9 @@ export const metadata = {
   keywords: ["travel agency Indore", "tour packages", "domestic tours", "international tours", "honeymoon packages", "weekend trips", "corporate tours"],
   verification: {
     google: 'GOOGLE_VERIFICATION_CODE',
+  },
+  icons: {
+    icon: '/favicon.ico',
   },
   openGraph: {
     title: "Travel Bug tourism - Best Travel Agency in Indore | Pithampur",
@@ -45,6 +49,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Topbar />
+        <Header />
         {children}
         <Footer />
       </body>

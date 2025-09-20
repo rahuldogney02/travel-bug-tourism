@@ -1,4 +1,4 @@
-import topbarData from '../../data/topbarData.json';
+import topbarData from '~/data/topbarData.json';
 
 const Topbar = () => {
   return (

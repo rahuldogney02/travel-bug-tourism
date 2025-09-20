@@ -1,0 +1,106 @@
+/* The frontend CSS in /public/frontend/css is linked directly in app/layout.js
+  to avoid Next's server-side CSS module resolution. Do not @import public
+  assets from server-side processed CSS files. */
+@import "tailwindcss";
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Full page background image */
+  /* background-image: url('/frontend/images/BG tbt.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+}
+
+/* Footer styles */
+.main_footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  color: #222;
+}
+
+.main_footer .contactinfo .left-contactno .telno {
+  color: #11664d !important;
+  font-weight: 600;
+}
+
+.main_footer .footer-cols .foot-title {
+  color: #173334;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.main_footer .footer-menus .foot-nav {
+  color: #505050;
+  text-decoration: none;
+}
+
+.main_footer .footer-menus .foot-nav:hover {
+  color: #11664d;
+}
+
+.main_footer .footer-foot p {
+  color: #666;
+}
+
+/* Header styles */
+.main_menu {
+  background-color: #ffffff;
+}
+
+.main_menu .navbar-nav .nav-item .nav-link {
+  color: #05073d !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  padding: 0.8rem 0 8px !important;
+}
+
+.main_menu .navbar-nav .nav-item .nav-link.active,
+.main_menu .navbar-nav .nav-item .nav-link[aria-current="page"] {
+  color: #05073d !important;
+  font-weight: 600 !important;
+}
+
+.main_menu .navbar-brand img.logo,
+.main_menu .navbar-brand .logo {
+  max-width: 150px !important;
+  height: auto !important;
+}
+
+.main_menu .offcanvas .offcanvas-header .offcanvas-title {
+  color: #05073d !important;
+}
+
+
+.topbar {
+  background-color: #11664d; /* same as --primery in style.css */
+  padding: 8px 0;
+  text-align: center;
+}
+
+.contactno {
+  color: #ffffff;
+  font-size: 15px;
+  font-family: "DM Sans", Arial, sans-serif;
+}
