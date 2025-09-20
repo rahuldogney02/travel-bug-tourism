@@ -11,7 +11,7 @@ const TripsAndToursDropdown = () => {
 
   return (
     <div 
-      className="relative"
+      className="relative dropdown-container"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -29,7 +29,7 @@ const TripsAndToursDropdown = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none p-2"
+            className="absolute left-0 mt-2 w-56 dropdown-menu origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none p-2"
           >
             {tripsAndToursMenu.map((item) => (
               <li key={item.title}>

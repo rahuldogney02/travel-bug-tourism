@@ -13,7 +13,7 @@ const DestinationsDropdown = () => {
 
   return (
     <div 
-      className="relative"
+      className="relative dropdown-container"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -31,7 +31,7 @@ const DestinationsDropdown = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-2 w-[40rem] origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="absolute left-0 mt-2 w-[40rem] dropdown-menu origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div className="flex">
               {/* Vertical Tabs */}
