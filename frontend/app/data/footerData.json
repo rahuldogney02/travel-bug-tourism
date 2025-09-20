@@ -1,0 +1,41 @@
+{
+  "contact": {
+    "phone": "+91 8085864565",
+    "email": "travelbugtourism@gmail.com",
+    "address": "Khatiwala Tank Sapna Sangeeta Road, Bhawarkua Main Rd, Navlakha, Indore, Madhya Pradesh 452014 | Pithampur"
+  },
+  "social": [
+    { "name": "Facebook", "url": "https://www.facebook.com/manas.dogney.5", "icon": "facebook" },
+    { "name": "Youtube", "url": "https://youtube.com/shorts/PRii7kIGO7g?si=faxFM6tm8hN3Na_U", "icon": "youtube" },
+    { "name": "Instagram", "url": "https://www.instagram.com/travel_bugtourism", "icon": "instagram" },
+    { "name": "Map", "url": "https://share.google/YFoebs00ss5l5apZs", "icon": "map-marker" }
+  ],
+  "companyLinks": [
+    { "name": "Home", "url": "/" },
+    { "name": "About Us", "url": "/about-us" },
+    { "name": "News & Blogs", "url": "/blogs" },
+    { "name": "Contact Us", "url": "/contact-us" },
+    { "name": "Terms & Conditions", "url": "javascript:void(0)" },
+    { "name": "Privacy Policy", "url": "/privacy-policy" }
+  ],
+  "destinationLinks": [
+    { "name": "Domestic", "url": "/category/domestic" },
+    { "name": "International", "url": "/category/international" },
+    { "name": "Weekend Trips", "url": "/category/weekend-trips" },
+    { "name": "Honeymoon Packages", "url": "/category/honeymoon-packages" },
+    { "name": "Any Festival", "url": "/category/any-festival" },
+    { "name": "Giftcards", "url": "/gift-cards" }
+  ],
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Subscribe to the free newsletter and stay up to date"
+  },
+  "copyright": {
+    "text": "Copyrights © 2025. All Rights Reserved by The Travel Bug Tourism. Design & Developed by",
+    "developer": "Rahul Dogney",
+    "developerUrl": "#"
+  },
+  "whatsapp": {
+    "url": "https://wa.me/918085864565?text=Welcome To Travel Bug Tourism || How Can I Help You? || Manas Dogney"
+  }
+}
