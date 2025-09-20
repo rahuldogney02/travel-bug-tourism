@@ -1,8 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Topbar from "./components/layout/Topbar";
-import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header/Header";
 import "../lib/fontawesome"; // Import FontAwesome configuration
 import Topbar from "./components/layout/Topbar";
 import Footer from "./components/layout/Footer";

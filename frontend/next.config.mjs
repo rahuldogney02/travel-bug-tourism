@@ -62,9 +62,14 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     // Add bundle optimization
     if (!isServer) {
+      // Ensure splitChunks is properly initialized
+      if (!config.optimization.splitChunks || config.optimization.splitChunks === false) {
+        config.optimization.splitChunks = {};
+      }
+      
       config.optimization.splitChunks.chunks = 'all';
       config.optimization.splitChunks.cacheGroups = {
-        ...config.optimization.splitChunks.cacheGroups,
+        ...(config.optimization.splitChunks.cacheGroups || {}),
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
