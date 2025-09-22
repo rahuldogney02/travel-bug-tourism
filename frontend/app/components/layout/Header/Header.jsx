@@ -9,6 +9,7 @@ import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
 import DestinationsDropdown from './DestinationsDropdown';
 import TripsAndToursDropdown from './TripsAndToursDropdown';
 import SpecialOffersDropdown from './SpecialOffersDropdown';
+import useViewport from '../../../hooks/useViewport';
 import mobileMenu from '../../../data/mobile-menu.json';
 
 // Accordion for the main off-canvas menu (for all screen sizes)
@@ -89,6 +90,7 @@ const NestedAccordion = ({ subMenu, onLinkClick }) => {
 // Main Header Component
 const Header = () => {
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
+  const { showDesktopNav, isLandscape, width } = useViewport();
 
   const handleLinkClick = () => {
     setIsOffcanvasOpen(false);
@@ -105,36 +107,42 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Middle: Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:justify-center lg:flex-1">
-            <ul className="flex items-center space-x-8">
-              <DestinationsDropdown />
-              <TripsAndToursDropdown />
-              <SpecialOffersDropdown />
-            </ul>
-          </div>
+          {/* Middle: Desktop Navigation - Now controlled by viewport hook */}
+          {showDesktopNav && (
+            <div className="flex items-center justify-center flex-1">
+              <ul className="flex items-center space-x-8">
+                <DestinationsDropdown />
+                <TripsAndToursDropdown />
+                <SpecialOffersDropdown />
+              </ul>
+            </div>
+          )}
 
           {/* Right: Desktop Off-canvas Toggler & Mobile Toggler */}
           <div className="flex items-center gap-4">
-             {/* This is the toggler from your reference that is visible on desktop */}
-            <button
-              className="hidden lg:flex flex-col space-y-1.5"
-              aria-label="Open main menu"
-              onClick={() => setIsOffcanvasOpen(true)}
-            >
-              <span className="block h-0.5 w-7 bg-black"></span>
-              <span className="block h-0.5 w-5 bg-black"></span>
-            </button>
+             {/* Desktop toggler - only show on large screens */}
+            {showDesktopNav && (
+              <button
+                className="flex flex-col space-y-1.5"
+                aria-label="Open main menu"
+                onClick={() => setIsOffcanvasOpen(true)}
+              >
+                <span className="block h-0.5 w-7 bg-black"></span>
+                <span className="block h-0.5 w-5 bg-black"></span>
+              </button>
+            )}
             
-            {/* This is the standard hamburger for mobile/tablet */}
-            <motion.button
-              className="inline-flex lg:hidden items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100"
-              aria-label="Open menu"
-              onClick={() => setIsOffcanvasOpen(true)}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FiMenu size={24} />
-            </motion.button>
+            {/* Mobile hamburger - show when desktop nav is hidden */}
+            {!showDesktopNav && (
+              <motion.button
+                className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100"
+                aria-label="Open menu"
+                onClick={() => setIsOffcanvasOpen(true)}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiMenu size={24} />
+              </motion.button>
+            )}
           </div>
         </div>
       </div>
@@ -159,14 +167,16 @@ const Header = () => {
               </div>
               
               <nav className="flex-1 overflow-y-auto">
-                {/* Accordion for mobile/tablet */}
-                <div className="lg:hidden">
+                {/* Accordion for mobile devices (when desktop nav is not shown) */}
+                {!showDesktopNav && (
+                  <div>
                     {mobileMenu.map((item) => (
-                        <OffcanvasAccordionItem key={item.title} item={item} onLinkClick={handleLinkClick} />
+                      <OffcanvasAccordionItem key={item.title} item={item} onLinkClick={handleLinkClick} />
                     ))}
-                </div>
+                  </div>
+                )}
                 
-                {/* Simple links for all views inside off-canvas */}
+                {/* Simple links for desktop off-canvas */}
                 <div className="py-4 px-4 border-t lg:border-t-0">
                     <Link href="/" onClick={handleLinkClick} className="block py-3 px-4 text-base font-medium text-slate-800 rounded-md hover:bg-slate-50">Home</Link>
                     <Link href="/about-us" onClick={handleLinkClick} className="block py-3 px-4 text-base font-medium text-slate-800 rounded-md hover:bg-slate-50">About Us</Link>

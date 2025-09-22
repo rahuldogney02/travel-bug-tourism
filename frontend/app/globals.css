@@ -89,3 +89,106 @@ html {
   border-radius: 2px;
   height: 5px;
 }
+
+/* 
+  Orientation-based responsive styles for header navigation
+  These styles ensure proper navigation behavior on orientation changes
+*/
+
+/* Enhanced responsive handling for orientation changes */
+@media screen and (orientation: landscape) and (max-width: 926px) and (min-width: 667px) {
+  /* Ensure header height remains consistent in landscape mode */
+  header {
+    height: 60px;
+    min-height: 60px;
+  }
+  
+  .h-20 {
+    height: 60px !important;
+  }
+  
+  /* Ensure navigation dropdowns don't overflow on landscape mobile */
+  .dropdown-menu {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+}
+
+/* Smooth transitions for orientation changes */
+@media screen and (orientation: landscape) {
+  * {
+    transition: none !important;
+  }
+  
+  body {
+    transition: all 0.3s ease;
+  }
+  
+  /* Prevent horizontal scrolling issues on orientation change */
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Portrait mode optimizations */
+@media screen and (orientation: portrait) {
+  /* Reset header height for portrait mode */
+  header {
+    height: 80px;
+    min-height: 80px;
+  }
+  
+  .h-20 {
+    height: 80px !important;
+  }
+}
+
+/* Prevent layout shift during orientation change */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  /* Compact header for very short landscape screens */
+  header {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+  
+  .h-20 {
+    height: 50px !important;
+  }
+  
+  /* Adjust logo size for compact header */
+  header img {
+    height: 32px !important;
+    width: auto !important;
+  }
+}
+
+/* Ensure dropdown menus work properly in all orientations */
+@media screen {
+  .dropdown-container {
+    position: relative;
+    z-index: 50;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    z-index: 51;
+    /* Ensure dropdowns don't go off-screen on smaller landscape devices */
+    max-width: min(40rem, 90vw);
+  }
+}
+
+/* Touch-friendly improvements for mobile landscape */
+@media screen and (orientation: landscape) and (max-width: 926px) {
+  /* Increase touch targets for better usability */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Adjust dropdown menu positioning for landscape */
+  .dropdown-menu {
+    top: 100%;
+    left: 0;
+    transform: none;
+  }
+}
