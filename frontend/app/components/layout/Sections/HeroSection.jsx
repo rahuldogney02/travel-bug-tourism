@@ -73,7 +73,7 @@ const HeroSection = ({ page = "home" }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-transparent"></div>
@@ -89,9 +89,9 @@ const HeroSection = ({ page = "home" }) => {
         initial="hidden"
         animate="visible"
       >
-        {/* SVG Background with Text Overlay - Reduced Height */}
+        {/* SVG Background with Text Overlay - Reduced Mobile Size */}
         <motion.div
-          className="relative flex justify-center items-center min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] xl:min-h-screen pt-1 sm:pt-2 md:pt-4 lg:pt-6 xl:pt-8"
+          className="relative flex justify-center items-center min-h-[35vh] sm:min-h-[31vh] md:min-h-[56vh] lg:min-h-[4vh] xl:min-h-screen pt-1 sm:pt-2 md:pt-4 lg:pt-6 xl:pt-8"
           variants={svgVariants}
         >
           <div className="relative w-full max-w-lg sm:max-w-xl lg:max-w-2xl xl:max-w-3xl">
