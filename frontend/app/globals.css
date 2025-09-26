@@ -184,11 +184,33 @@ html {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Adjust dropdown menu positioning for landscape */
   .dropdown-menu {
     top: 100%;
     left: 0;
     transform: none;
   }
+}
+
+/* Marquee styles */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Utility to animate the marquee */
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Faster marquee on mobile */
+@media (max-width: 767px) {
+  .animate-marquee {
+    animation-duration: 8s;
+  }
+}
+/* Pause on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
 }

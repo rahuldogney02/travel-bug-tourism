@@ -93,7 +93,7 @@ const Footer = () => {
           </div>
           <div className="w-full">
             <div className="text-center py-4 border-t border-gray-700">
-              <p className="mb-0 font-medium">Copyrights &copy; 2025. All Rights Reserved by The Travel Bug Tourism. Design & Developed by <strong className="text-blue-400"><a href="https://impliestechnologies.in" target="_blank">Rahul Dogney</a></strong></p>
+              <p className="mb-0 font-medium">Copyrights &copy; 2025. All Rights Reserved by The Travel Bug Tourism. Design & Developed by <strong className="text-blue-400"><a href="#" target="_blank">Rahul Dogney</a></strong></p>
             </div>
           </div>
         </div>
