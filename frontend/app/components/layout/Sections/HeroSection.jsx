@@ -73,7 +73,7 @@ const HeroSection = ({ page = "home" }) => {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    <section className="hero-section relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-transparent"></div>
@@ -96,7 +96,7 @@ const HeroSection = ({ page = "home" }) => {
         >
           <div className="relative w-full max-w-lg sm:max-w-xl lg:max-w-2xl xl:max-w-3xl">
             {/* Background glow effect */}
-            <div className="absolute inset-0 bg-orange-200 rounded-full blur-3xl opacity-30 transform scale-110"></div>
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-30 transform scale-110"></div>
 
             {/* SVG Container - Reduced Padding */}
             <motion.div
@@ -151,21 +151,21 @@ const HeroSection = ({ page = "home" }) => {
             >
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
                 <motion.h1
-                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-lg leading-tight"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-brand leading-tight"
                   variants={itemVariants}
                 >
                   {content.title}
                 </motion.h1>
 
                 <motion.h2
-                  className="text-sm sm:text-base md:text-lg lg:text-xl text-orange-200 font-medium drop-shadow-md"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-brand font-medium"
                   variants={itemVariants}
                 >
                   {content.subtitle}
                 </motion.h2>
 
                 <motion.p
-                  className="text-xs sm:text-sm md:text-base text-white/90 leading-relaxed drop-shadow-md max-w-xs sm:max-w-sm md:max-w-2xl"
+                  className="text-xs sm:text-sm md:text-base text-brand leading-relaxed max-w-xs sm:max-w-sm md:max-w-2xl"
                   variants={itemVariants}
                 >
                   {content.description}

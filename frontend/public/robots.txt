@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.vercel/
+
+Sitemap: https://travelbugtourism.in/sitemap.xml

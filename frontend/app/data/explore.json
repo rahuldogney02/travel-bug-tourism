@@ -1,0 +1,28 @@
+[
+  {
+    "id": "international",
+    "title": "Explore the World!",
+    "subtitle": "Starting at ₹10,999/- Unmissable International Deals.",
+    "button_text": "Explore International",
+    "button_href": "/category/international",
+    "type": "international",
+    "gradient": "from-blue-600 to-purple-600",
+    "hoverGradient": "from-blue-700 to-purple-700",
+    "bgColor": "bg-gradient-to-br from-blue-50 to-purple-50",
+    "textColor": "text-blue-900",
+    "subtitleColor": "text-blue-700"
+  },
+  {
+    "id": "domestic",
+    "title": "Discover India!",
+    "subtitle": "Starting at ₹4,999/- Best Domestic Getaways.",
+    "button_text": "Explore Domestic",
+    "button_href": "/category/domestic",
+    "type": "domestic",
+    "gradient": "from-green-600 to-emerald-600",
+    "hoverGradient": "from-green-700 to-emerald-700",
+    "bgColor": "bg-gradient-to-br from-green-50 to-emerald-50",
+    "textColor": "text-green-900",
+    "subtitleColor": "text-green-700"
+  }
+]
