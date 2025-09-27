@@ -8,11 +8,11 @@ const config = {
   theme: {
     extend: {
     colors: {
-    brand: 'var(--color-primary)',
-    dark: 'var(--color-dark-blue)',
-    forest: 'var(--color-dark-green)',
-    leaf: 'var(--color-green)',
-    beige: 'var(--color-beige)',
+      primary: '#084052',
+      secondary: '#C89364',
+      dark: '#033E54',
+      muted: '#B4C5C5',
+      brand: '#0d5a41', // added for hero text color
     },
     animation: {
     backgroundShift: 'backgroundShift 20s ease-in-out infinite',
@@ -71,6 +71,8 @@ const config = {
     marquee: {
       '0%': { transform: 'translateX(100%)' },
       '100%': { transform: 'translateX(-200%)' },
+    },
+    },
     },
   },
   plugins: [],
