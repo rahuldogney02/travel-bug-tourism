@@ -1,0 +1,14 @@
+{
+  "domestic": {
+    "id": "domestic",
+    "title": "Discover the Soul of India!",
+    "description": "Immerse yourself in India's diverse wonders—majestic temples, serene backwaters, vibrant festivals, and timeless heritage. Let us guide you through an unforgettable journey that celebrates the essence of this extraordinary land!",
+    "backgroundImage": "/image/hero-sections/domestic-hero-bg.jpg"
+  },
+  "international": {
+    "id": "international",
+    "title": "Journey Without Boundaries",
+    "description": "Explore the world with our all-inclusive international tour packages. From flights to guided tours, we handle everything, making your travel experience seamless and unforgettable. Tailored to your preferences, we ensure every journey is as unique as you are.",
+    "backgroundImage": "/image/hero-sections/international-hero-bg.jpg"
+  }
+}
