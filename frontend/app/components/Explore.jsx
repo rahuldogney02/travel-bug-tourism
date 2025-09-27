@@ -172,10 +172,10 @@ const Explore = () => {
               <span className="mr-2">🌟</span>
               Premium Travel Experiences
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark leading-tight mb-4">
-              Give them <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">quality</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+              Give them <span className="bg-gradient-to-r from-[#11664d] to-[#0d5a41] bg-clip-text text-transparent">quality</span>
             </h2>
-            <p className="text-xl text-muted max-w-2xl mx-auto">
+            <p className="text-xl text-muted max-w-2xl mx-auto text-dark">
               That's the best kind of advertising - Discover amazing destinations with unbeatable deals
             </p>
           </motion.div>
