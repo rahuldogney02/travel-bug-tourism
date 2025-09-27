@@ -1,14 +1,12 @@
-
 {
   "destinations": [
     {
       "slug": "goa",
-      "title": "Royal Goa Packages - Travel Bug Tourism",
-      "description": "Discover the tropical paradise of Goa with our curated Royal Goa Bliss Packages. Enjoy beaches, nightlife, culture, and adventure.",
+      "title": "Goa Packages - Travel Bug Tourism",
+      "description": "Discover the tropical paradise of Goa with our curated Goa Bliss Packages. Enjoy beaches, nightlife, culture, and adventure.",
       "banner": {
-        "title": "Goa Bliss Packages",
         "subtitle": "Where Dreams Meet Tropical Reality",
-        "backgroundImage": "/storage/uploads/destination/header-images/Goa_banner_1740629251.svg"
+        "backgroundImage": "/storage/uploads/destination/domestic/Goa_banner_1740629251.svg"
       },
       "about": {
         "title": "About Goa Tour Packages",
@@ -25,7 +23,7 @@
             "title": "Goa Bliss Escape",
             "price": "Starting 8999",
             "duration": "2N/3D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-goa/package/goa-bliss-escape"
+            "link": "/category/domestic/destination//package/goa-bliss-escape"
           },
           {
             "image": "/storage/uploads/package/primary-images/d5_1737376946.png",
@@ -33,7 +31,7 @@
             "title": "Golden Sands Getway",
             "price": "Starting 10000",
             "duration": "4N/5D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-goa/package/golden-sands-getway"
+            "link": "/category/domestic/destination//package/golden-sands-getway"
           },
           {
             "image": "/storage/uploads/package/primary-images/d3_1737377141.png",
@@ -41,7 +39,7 @@
             "title": "Goa Adventure Trail",
             "price": "Starting 8999",
             "duration": "3N/4D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-goa/package/goa-adventure-trail"
+            "link": "/category/domestic/destination//package/goa-adventure-trail"
           }
         ]
       },
@@ -83,52 +81,52 @@
     },
     {
       "slug": "ooty",
-      "title": "Royal Ooty Packages - Travel Bug Tourism",
+      "title": "Ooty Packages - Travel Bug Tourism",
       "description": "Enjoy Ooty’s charming hills, blooming gardens, and colonial architecture.",
       "banner": {
         "title": "Ooty Hills Packages",
         "subtitle": "Enjoy Ooty’s charming hills, blooming gardens, and colonial architecture.",
-        "backgroundImage": "/storage/uploads/destination/header-images/Ooty_banner_1740629959.svg"
+        "backgroundImage": "/storage/uploads/destination/domestic/Ooty_banner_1740629959.svg"
       },
       "about": {
         "title": "About Ooty Tour Packages",
         "description": "Nestled in the Nilgiri Hills, Ooty is a picture-perfect hill station. Stroll through its lush botanical gardens, take a ride on the toy train, or visit the stunning tea plantations. Ooty’s charm is timeless and inviting."
       },
       "dreamPackages": {
-        "title": "Royal Ooty Dream Packages",
+        "title": "Ooty Dream Packages",
         "subtitle": "Curated packages for your dream vacation, loved by travelers worldwide.",
         "packages": [
           {
             "image": "/storage/uploads/package/primary-images/oo1_1740630482.png",
-            "location": "Royal Ooty",
+            "location": "Ooty",
             "title": "Ooty Bliss Escape",
             "price": "Starting 9999",
             "duration": "3N/4D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-bliss-escape"
+            "link": "/category/domestic/destination/royal-ooty/package/ooty-bliss-escape"
           },
           {
             "image": "/storage/uploads/package/primary-images/oo2_1740630494.png",
-            "location": "Royal Ooty",
+            "location": "Ooty",
             "title": "Ooty Dream Getaway",
             "price": "Starting 9999",
             "duration": "4N/5D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-dream-getaway"
+            "link": "/category/domestic/destination/royal-ooty/package/ooty-dream-getaway"
           },
           {
             "image": "/storage/uploads/package/primary-images/oo3_1740630505.png",
-            "location": "Royal Ooty",
+            "location": "Ooty",
             "title": "Ooty Adventure Expedition",
             "price": "Starting 9999",
             "duration": "3N/4D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-adventure-expedition"
+            "link": "/category/domestic/destination/royal-ooty/package/ooty-adventure-expedition"
           },
           {
             "image": "/storage/uploads/package/primary-images/oo4_1740630516.png",
-            "location": "Royal Ooty",
-            "title": "Ooty Royal Retreat",
+            "location": "Ooty",
+            "title": "Ooty Retreat",
             "price": "Starting 9999",
             "duration": "5N/6D",
-            "link": "https://theroyaltourism.in/category/domestic/destination/royal-ooty/package/ooty-royal-retreat"
+            "link": "/category/domestic/destination/royal-ooty/package/ooty-royal-retreat"
           }
         ]
       },
@@ -170,25 +168,25 @@
     },
     {
       "slug": "mysore",
-      "title": "Royal Mysore Packages - Travel Bug Tourism",
-      "description": "Uncover Mysore’s royal palaces, vibrant traditions, and timeless charm.",
+      "title": "Mysore Packages - Travel Bug Tourism",
+      "description": "Uncover Mysore’s palaces, vibrant traditions, and timeless charm.",
       "banner": {
         "title": "Mysore Misty Packages",
-        "subtitle": "Uncover Mysore’s royal palaces, vibrant traditions, and timeless charm.",
-        "backgroundImage": "/storage/uploads/destination/header-images/Mysore_banner_1740629876.svg"
+        "subtitle": "Uncover Mysore’s palaces, vibrant traditions, and timeless charm.",
+        "backgroundImage": "/storage/uploads/destination/domestic/Mysore_banner_1740629876.svg"
       },
       "about": {
         "title": "About Mysore Tour Packages",
-        "description": "Mysore is a cultural gem of South India, known for its royal heritage. Visit the magnificent Mysore Palace, enjoy the grandeur of the Dasara Festival, and shop for silk sarees. A city where tradition meets modernity."
+        "description": "Mysore is a cultural gem of South India, known for its heritage. Visit the magnificent Mysore Palace, enjoy the grandeur of the Dasara Festival, and shop for silk sarees. A city where tradition meets modernity."
       },
       "dreamPackages": {
-        "title": "Royal Mysore Dream Packages",
+        "title": "Mysore Dream Packages",
         "subtitle": "Curated packages for your dream vacation, loved by travelers worldwide.",
         "packages": []
       },
       "sliderSections": [
         {
-          "title": "Discover the Essence of Royal Heritage",
+          "title": "Discover the Essence of Heritage",
           "subtitle": "Dive into Mysore’s cultural, royal, and spiritual experiences.",
           "slides": [
             {
@@ -198,7 +196,7 @@
                 { "icon": "/storage/uploads/custom-icons/location_1737213438.svg", "text": "Mysore Palace" },
                 { "icon": "/storage/uploads/custom-icons/Exploring_1737219430.svg", "text": "Exploring" }
               ],
-              "description": "Walk through the opulent halls of one of India’s most iconic royal residences."
+              "description": "Walk through the opulent halls of one of India’s most iconic residences."
             },
             {
               "image": "/storage/uploads/section-entity/msa2_1737222415.png",
@@ -221,6 +219,50 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "amritsar",
+      "title": "Amritsar"
+    },
+    {
+      "slug": "coorg",
+      "title": "Coorg"
+    },
+    {
+      "slug": "darjeling",
+      "title": "Darjeling"
+    },
+    {
+      "slug": "kerala",
+      "title": "Kerala"
+    },
+    {
+      "slug": "kodaikanal",
+      "title": "Kodaikanal"
+    },
+    {
+      "slug": "ladakh",
+      "title": "Ladakh"
+    },
+    {
+      "slug": "mumbai",
+      "title": "Mumbai"
+    },
+    {
+      "slug": "rajasthan",
+      "title": "Rajasthan"
+    },
+    {
+      "slug": "shiridi",
+      "title": "Shiridi"
+    },
+    {
+      "slug": "tirupathi",
+      "title": "Tirupathi"
+    },
+    {
+      "slug": "wayanad",
+      "title": "Wayanad"
     }
   ]
 }

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./styles/buttons.css";
 
 /*
   Responsive Design Setup (Mobile-First)
@@ -19,29 +20,27 @@
   Example: <div class="text-center lg:text-left">...</div>
 */
 
+/* Global design tokens restricted to approved palette */
 :root {
-  --background: #FCFCF7; /* Off-white */
-  --foreground: #171717;
+  /* Approved palette only */
+  --color-primary: #11664d; /* green */
+  --color-secondary: #C89364; /* accent sand */
+  --color-dark: #173334; /* deep teal/dark */
+  --color-muted: #505050; /* neutral text */
 
-  --color-primary: #C89364; /* Orange */
-  --color-dark-blue: #013F54;
-  --color-green: #5BA529;
-  --color-dark-green: #0C5C45;
-  --color-beige: #C89364;
+  /* Semantic tokens mapped to palette */
+  --background: var(--color-dark);
+  --foreground: var(--color-secondary);
+  --color-text: var(--foreground);
+  --border-color: var(--color-primary);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #013F54;
-    --foreground: #ededed;
-    
-    /* Re-define colors for dark mode if needed, for now using the same */
-    --color-primary: #C89364;
-    --color-dark-blue: #013F54;
-    --color-green: #5BA529;
-    --color-dark-green: #0C5C45;
-    --color-beige: #C89364;
-    --color-text: #ededed
+    /* Keep same palette for brand consistency */
+    --background: var(--color-dark);
+    --foreground: var(--color-secondary);
+    --color-text: var(--foreground);
   }
 }
 
@@ -184,11 +183,130 @@ html {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Adjust dropdown menu positioning for landscape */
   .dropdown-menu {
     top: 100%;
     left: 0;
     transform: none;
+  }
+}
+
+/* Marquee styles */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Utility to animate the marquee */
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Faster marquee on mobile */
+@media (max-width: 767px) {
+  .animate-marquee {
+    animation-duration: 8s;
+  }
+}
+/* Pause on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Production-ready utility classes */
+.text-brand {
+  color: var(--color-primary);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.text-leaf {
+  color: var(--color-green);
+}
+
+.text-forest {
+  color: var(--color-dark-green);
+}
+
+.bg-brand {
+  background-color: var(--color-primary);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+/* Map legacy greens to approved primary (avoid build break if used) */
+.bg-leaf,
+.bg-forest {
+  background-color: var(--color-primary);
+}
+
+/* Border utilities */
+.border-brand {
+  border-color: var(--color-primary);
+}
+
+.border-dark {
+  border-color: var(--color-dark);
+}
+
+/* Focus states for accessibility */
+.focus-brand:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Skip to main content for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Loading states */
+.loading-skeleton {
+  /* Use only approved palette colors in shimmer */
+  background: linear-gradient(90deg, var(--color-muted) 25%, var(--color-primary) 50%, var(--color-muted) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: #173334 !important;
+    color: #C89364 !important;
   }
 }

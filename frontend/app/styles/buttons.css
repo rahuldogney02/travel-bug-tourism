@@ -1,0 +1,147 @@
+/* Button styles without Tailwind @apply (plain CSS using variables) */
+.btn-base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	border-radius: 0.5rem; /* rounded-lg */
+	transition: all 0.3s ease;
+	position: relative;
+	user-select: none;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 1.25rem;
+}
+
+.btn-base:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+.btn-base:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.btn-primary {
+	background: var(--color-primary);
+	color: var(--color-dark);
+	border: 2px solid var(--color-secondary);
+	padding: 0.75rem 1.5rem; /* py-3 px-6 */
+	font-size: 0.875rem; /* text-sm */
+	box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+}
+
+.btn-primary:hover {
+	background: rgba(17,102,77,0.8); /* primary/80 */
+	border-color: rgba(200,147,100,0.8); /* secondary/80 */
+}
+
+.btn-primary:active {
+	transform: scale(0.95);
+}
+
+.btn-outline-primary {
+	background: transparent;
+	color: var(--color-secondary);
+	border: 2px solid var(--color-primary);
+	padding: 0.75rem 1.5rem;
+	font-size: 0.875rem;
+}
+
+.btn-outline-primary:hover {
+	background: rgba(17,102,77,0.1);
+}
+
+.btn-secondary {
+	background: var(--color-secondary);
+	color: var(--color-dark);
+	border: 2px solid var(--color-primary);
+	padding: 0.75rem 1.5rem;
+	font-size: 0.875rem;
+	box-shadow: 0 4px 8px -2px rgba(0,0,0,0.25);
+}
+
+.btn-secondary:hover {
+	background: rgba(200,147,100,0.8);
+}
+
+.btn-secondary:active {
+	transform: scale(0.95);
+}
+
+/* Border + subtle gradient shaded background (light tint) */
+.btn-border-gradient {
+	background: linear-gradient(135deg, rgba(17,102,77,0.15) 0%, rgba(200,147,100,0.15) 100%);
+	color: var(--color-secondary);
+	border: 2px solid var(--color-primary);
+	padding: 0.75rem 1.5rem;
+	font-size: 0.875rem;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+}
+
+.btn-border-gradient:hover {
+	background: linear-gradient(135deg, rgba(17,102,77,0.28) 0%, rgba(200,147,100,0.28) 100%);
+	color: var(--color-secondary);
+}
+
+.btn-border-gradient:active {
+	transform: scale(0.95);
+}
+
+/* Pill gradient button (replaces old emerald gradient) */
+.btn-pill-gradient {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0.5rem; /* adjusted per request */
+	font-weight: 600;
+	font-size: 0.95rem;
+	letter-spacing: 0.5px;
+	border-radius: 9999px; /* pill */
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 55%, var(--color-primary) 100%);
+	position: relative;
+	color: var(--color-secondary);
+	border: 2px solid var(--color-primary);
+	box-shadow: 0 8px 20px -6px rgba(0,0,0,0.35), 0 2px 4px -1px rgba(0,0,0,0.4);
+	transition: all 0.35s ease;
+	overflow: hidden;
+}
+
+.btn-pill-gradient:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 25% 20%, rgba(200,147,100,0.25), transparent 60%);
+	mix-blend-mode: screen;
+	opacity: 0.6;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
+}
+
+.btn-pill-gradient:hover {
+	transform: translateY(-3px) scale(1.03);
+	box-shadow: 0 12px 28px -8px rgba(0,0,0,0.45), 0 4px 10px -2px rgba(0,0,0,0.5);
+	border-color: var(--color-secondary);
+}
+
+.btn-pill-gradient:hover:before {
+	opacity: 0.85;
+}
+
+.btn-pill-gradient:active {
+	transform: translateY(0) scale(0.96);
+	box-shadow: 0 6px 12px -4px rgba(0,0,0,0.4);
+}
+
+.btn-pill-gradient:focus-visible {
+	outline: 3px solid var(--color-secondary);
+	outline-offset: 3px;
+}
+
+.btn-pill-gradient svg {
+	width: 1.125rem;
+	height: 1.125rem;
+	stroke: currentColor;
+}

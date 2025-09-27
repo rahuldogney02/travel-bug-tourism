@@ -149,3 +149,42 @@ npm run dev
 
 *Last Updated: September 20, 2025*
 *Optimization Impact: ~70% build time improvement, better user experience, production-ready deployment*
+
+
+Desktop keeps the grid layout while mobile gets the swiper functionality with auto-rotation. Let me update the component:
+
+Explore.jsx+140-2
+Perfect! I've created a hybrid Explore component that gives you the best of both worlds:
+
+🖥️ Desktop Experience (lg and above):
+✅ Grid layout maintained - both cards side by side
+✅ Hover animations and interactions
+✅ No swiper functionality - clean and simple
+✅ All original styling preserved
+📱 Mobile Experience (below lg breakpoint):
+✅ Swiper functionality with touch gestures
+✅ Auto-rotation every 10 seconds
+✅ Smooth slide transitions with spring physics
+✅ Progress bar showing countdown to next slide
+✅ Dot indicators for manual navigation
+✅ Pause/resume when user interacts
+✅ Mobile-optimized layout - single card focus
+🎨 Key Features:
+Responsive Breakpoints:
+Desktop (lg+): hidden lg:grid - Shows grid layout
+Mobile (< lg): lg:hidden - Shows swiper layout
+Mobile Swiper Features:
+👆 Touch swipe left/right to navigate
+⏰ 10-second auto-rotation with visual progress
+🎯 Dot navigation for direct slide access
+🔄 Smart pause/resume system
+📱 Optimized card height (420px) for mobile screens
+Consistent Styling:
+🎨 Same emerald theme across both layouts
+✨ Matching animations and transitions
+🌟 Consistent visual elements (badges, buttons, icons)
+Auto-Play Behavior:
+⏰ Starts with International (index 0)
+🔄 Rotates to Domestic after 10 seconds
+⏸️ Pauses when user swipes
+▶️ Resumes after 5 seconds of inactivity

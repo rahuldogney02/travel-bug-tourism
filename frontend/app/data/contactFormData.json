@@ -1,0 +1,43 @@
+{
+  "title": "Get In Touch",
+  "description": "Your email address will not be published. Required fields are marked *",
+  "formAction": "https://travelbugtourism.in/inquiry",
+  "csrfToken": "WQIgK9Zk2qPEddqgAUEIm7LFqDJ6LLQeNH9pC8rC",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Full Name*",
+      "type": "text",
+      "placeholder": "Full Name",
+      "required": true
+    },
+    {
+      "name": "phone_number",
+      "label": "Phone Number*",
+      "type": "text",
+      "placeholder": "Phone",
+      "required": true
+    },
+    {
+      "name": "email",
+      "label": "Email Address*",
+      "type": "email",
+      "placeholder": "Email",
+      "required": true
+    },
+    {
+      "name": "message",
+      "label": "Your Message",
+      "type": "textarea",
+      "placeholder": "Message",
+      "rows": 5,
+      "required": false
+    }
+  ],
+  "buttonText": "Send Message",
+  "buttonIcon": {
+    "className": "fa-light fa-arrow-left fa-rotate-by",
+    "style": { "--fa-rotate-angle": "130" }
+  },
+  "imageSrc": "/frontend/images/contact/right.png"
+}
