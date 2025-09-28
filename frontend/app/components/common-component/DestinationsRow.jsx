@@ -12,6 +12,43 @@ const KNOWN_INTERNATIONAL = [
   'maldives',
   'bangkok',
 ];
+
+// Helper function to generate multiple case variations for better compatibility
+const generateImageCandidates = (category, slug) => {
+  const candidates = [];
+  
+  // If destination has image field from backend, use it directly
+  if (typeof slug === 'object' && slug.image) {
+    candidates.push(slug.image);
+  }
+  
+  // Generate various case combinations for file names
+  const baseSlug = typeof slug === 'string' ? slug : slug.slug || '';
+  const variations = [
+    baseSlug, // original
+    baseSlug.toLowerCase(), // lowercase
+    baseSlug.charAt(0).toUpperCase() + baseSlug.slice(1).toLowerCase(), // Title case
+    baseSlug.toUpperCase(), // uppercase
+    baseSlug.replace(/-/g, ' '), // spaces instead of dashes
+    baseSlug.replace(/-/g, '_'), // underscores instead of dashes
+  ];
+  
+  // Try all variations with different extensions
+  const extensions = ['svg', 'png', 'jpg', 'jpeg', 'webp'];
+  
+  variations.forEach(variation => {
+    extensions.forEach(ext => {
+      candidates.push(`/image/destination/${category}/${variation}.${ext}`);
+    });
+  });
+  
+  // Fallback to hero image
+  candidates.push('/hero.png');
+  
+  // Remove duplicates and return
+  return [...new Set(candidates)];
+};
+
 import { useState } from 'react';
 
 const slugify = (s = '') =>
@@ -25,11 +62,36 @@ const slugify = (s = '') =>
 
 function Card({ href, title, candidates, showLabels }) {
   const [idx, setIdx] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  
   const src = candidates[idx] || '/hero.png';
+
+  const handleImageError = () => {
+    if (idx < candidates.length - 1) {
+      setIdx((n) => n + 1);
+      setHasError(false); // Reset error state for next image
+    } else {
+      setHasError(true);
+      setIsLoading(false);
+    }
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
 
   return (
     <div className="group relative aspect-square rounded-xl ring-1 ring-dark/10 hover:ring-brand/40 hover:shadow-lg transition-all duration-300 ease-out bg-white/70 dark:bg-dark/30 backdrop-blur animate-float">
       <Link href={href} className="absolute inset-0 rounded-xl overflow-hidden" aria-label={`Explore ${title}`}>
+        {/* Loading state */}
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+        
         <img
           src={src}
           alt={title}
@@ -37,10 +99,17 @@ function Card({ href, title, candidates, showLabels }) {
           decoding="async"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-          onError={() => {
-            if (idx < candidates.length - 1) setIdx((n) => n + 1);
-          }}
+          onError={handleImageError}
+          onLoad={handleImageLoad}
         />
+        
+        {/* Error state - show title when no image loads */}
+        {hasError && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary to-secondary text-white text-sm font-medium p-2 text-center">
+            {title}
+          </div>
+        )}
+        
         {/* Hover gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
       </Link>
@@ -90,12 +159,8 @@ const DestinationsRow = ({
           const hrefSlug = category === 'international' ? (rawSlug.startsWith('royal-') ? rawSlug : `royal-${cleanSlug}`) : cleanSlug;
           const title = destination?.banner?.title || destination?.title || cleanSlug;
 
-          // Build candidate image list
-          const candidates = [
-            `/image/destination/${category}/${cleanSlug}.svg`,
-            `/image/destination/${category}/${cleanSlug}.png`,
-            '/hero.png',
-          ].filter(Boolean);
+          // Build candidate image list with multiple variations
+          const candidates = generateImageCandidates(category, destination);
 
           return (
             <Card
