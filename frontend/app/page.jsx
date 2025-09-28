@@ -1,10 +1,10 @@
 import Image from "next/image";
 import HeroSection from "./components/layout/Sections/HeroSection";
-import DestinationsSection from "./components/common-component/DestinationsSection";
 import BrandsSection from "./components/common-component/BrandsSection";
 import About from "./components/About";
 import Explore from "./components/Explore";
 import CommonHassleFree from "./components/common-component/CommonHassleFree";
+import DestinationsSection from "./components/common-component/DestinationsSection";
 
 // Metadata for the home page
 export const metadata = {

@@ -1,5 +1,5 @@
-import SectionHeader from './SectionHeader';
 import DestinationsRow from './DestinationsRow';
+import SectionHeader from './SectionHeader';
 
 const DestinationsSection = ({ 
   category, 

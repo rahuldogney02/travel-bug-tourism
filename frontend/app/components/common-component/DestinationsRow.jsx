@@ -73,7 +73,7 @@ const DestinationsRow = ({
       : items;
 
   return (
-    <section className={`py-5 lg:py-5 bg-gradient-to-br from-gray-50 to-white ${className}`}>
+    <section className={`py-12 lg:py-5 bg-gradient-to-br from-gray-50 to-white ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 capitalize">
