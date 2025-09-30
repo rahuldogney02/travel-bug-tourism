@@ -25,15 +25,21 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap">
           <div className="w-full">
-            <div className="flex flex-col sm:flex-row sm:justify-between items-center py-4 gap-4">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-sm md:text-base">
+            <div className="flex items-center justify-between gap-6 py-4 flex-nowrap overflow-x-auto">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center text-xs sm:text-sm md:text-base flex-shrink-0 leading-tight">
                 <span className="inline-flex items-center gap-2 text-primary font-medium">
                   <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
                   <span>Speak to our Travel Expert</span>
                 </span>
-                <a href={`tel:${phoneHref}`} className="text-secondary hover:opacity-80 transition" aria-label="Phone number">{phoneDisplay}</a>
+                <a
+                  href={`tel:${phoneHref}`}
+                  className="text-secondary hover:opacity-80 transition mt-0.5 sm:mt-0 sm:ml-2"
+                  aria-label="Phone number"
+                >
+                  {phoneDisplay}
+                </a>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-shrink-0 whitespace-nowrap">
                 <span className="text-muted text-sm">Follow Us:</span>
                 <div className="flex items-center gap-3">
                   {socials.map(s => (
@@ -46,7 +52,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-full">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 sm:py-6 md:py-4">
               <div className="w-full">
                 <h4 className="text-lg font-semibold mb-4 text-secondary">Contact Us</h4>
                 <div className="flex mt-3 mb-3">
@@ -101,14 +107,20 @@ const Footer = () => {
                 <p className="text-sm mb-4 text-muted max-w-xs">{newsletter.description}</p>
                 <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e)=>e.preventDefault()}>
                   <input className="flex-1 rounded px-3 py-2 bg-dark border border-primary/40 focus:border-primary outline-none text-secondary placeholder:text-muted text-sm" type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
-                  <button className="px-5 py-2 rounded bg-primary text-dark font-semibold text-sm tracking-wide hover:bg-primary/80 transition-colors" type="submit" aria-label="Subscribe">Send</button>
+                  <button
+                    className="btn-pill-gradient px-5 py-2 text-sm font-semibold tracking-wide focus:outline-none focus:ring-2 focus:ring-secondary/60 focus:ring-offset-2 focus:ring-offset-dark shadow-md"
+                    type="submit"
+                    aria-label="Subscribe"
+                  >
+                    Send
+                  </button>
                 </form>
                 <div className="text-muted text-xs mt-2">We respect your privacy.</div>
               </div>
             </div>
           </div>
           <div className="w-full">
-            <div className="text-center py-4 border-t border-muted/40">
+            <div className="text-center py-2 border-t border-muted/40">
               <p className="mb-0 text-xs sm:text-sm text-muted">
                 {(copyright?.text || 'Copyrights © YEAR. All Rights Reserved by The Travel Bug Tourism. Design & Developed by').replace('2025', currentYear)}{' '}
                 <strong className="text-secondary">
