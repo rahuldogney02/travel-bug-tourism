@@ -18,8 +18,7 @@ export default function NotFound() {
           width={1024}
           height={1024}
           priority
-          cursor="pointer"
-          className="mx-auto w-full max-w-[1000px] max-h-[600px] h-auto drop-shadow-xl transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+          className="mx-auto w-full max-w-[1000px] max-h-[600px] h-auto drop-shadow-xl transition-transform duration-300 ease-in-out hover:scale-[1.02] cursor-pointer"
         />
        </Link>
 

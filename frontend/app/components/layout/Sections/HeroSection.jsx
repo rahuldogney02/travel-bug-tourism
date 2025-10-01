@@ -133,6 +133,8 @@ const HeroSection = ({ page = "home" }) => {
                   height={480}
                   className="w-full h-auto"
                   priority={page === 'home'}
+                  quality={85}
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 40vw"
                 />
                 <motion.div
                   className="absolute -top-6 -right-6 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg"

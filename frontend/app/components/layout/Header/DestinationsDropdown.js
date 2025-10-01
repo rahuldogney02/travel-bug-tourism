@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getOptimizedImageProps } from '../../../utils/imageOptimization';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown } from 'react-icons/fi';
 import destinationsMenu from '../../../data/destinations-menu.json';
@@ -68,7 +69,15 @@ const DestinationsDropdown = () => {
                       ))}
                     </ul>
                     <div className="w-1/3">
-                       <Image src="/image/city.jpeg" width={200} height={150} className="rounded-lg object-cover" alt="Domestic Destination" />
+                       <Image 
+                         src="/image/city.jpeg"
+                         alt="Domestic Destination"
+                         width={200}
+                         height={150}
+                         className="rounded-lg object-cover"
+                         quality={75}
+                         sizes="200px"
+                       />
                     </div>
                   </div>
                 )}
@@ -82,7 +91,15 @@ const DestinationsDropdown = () => {
                       ))}
                     </ul>
                     <div className="w-1/3">
-                       <Image src="/image/city.jpeg" width={200} height={150} className="rounded-lg object-cover" alt="International Destination" />
+                       <Image 
+                         src="/image/city.jpeg"
+                         alt="International Destination"
+                         width={200}
+                         height={150}
+                         className="rounded-lg object-cover"
+                         quality={75}
+                         sizes="200px"
+                       />
                     </div>
                   </div>
                 )}

@@ -82,8 +82,8 @@ const generateImageCandidates = (category, item) => {
     if (mappedStem.includes('_')) stems.add(mappedStem.replace(/_/g, '-').toLowerCase());
   }
 
-  // Order extensions by what actually exists in repo (svg, png, jpg). Drop webp (not present) to avoid 404s.
-  const exts = ['svg', 'png', 'jpg'];
+  // Order extensions by file size and loading speed (svg smallest, then jpg for photos, png for graphics)
+  const exts = ['svg', 'jpg', 'png'];
   stems.forEach(stem => {
     exts.forEach(ext => list.push(`/image/destination/${category}/${stem}.${ext}`));
   });
@@ -91,13 +91,24 @@ const generateImageCandidates = (category, item) => {
   return [...new Set(list)];
 };
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useIntersectionObserver, useImageFallback } from '../../hooks/useImageOptimization';
 
-function Card({ href, title, candidates, showLabels, priority = false }) {
+function Card({ href, title, candidates, showLabels, priority = false, enableLazyLoad = true }) {
   const [idx, setIdx] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [ref, isIntersecting, hasIntersected] = useIntersectionObserver();
+  const [shouldLoad, setShouldLoad] = useState(!enableLazyLoad || priority);
+  
   const src = candidates[idx] || '/hero.png';
+
+  // Start loading when element comes into view
+  useEffect(() => {
+    if (enableLazyLoad && (isIntersecting || hasIntersected) && !shouldLoad) {
+      setShouldLoad(true);
+    }
+  }, [isIntersecting, hasIntersected, enableLazyLoad, shouldLoad]);
 
   const handleImageError = () => {
     if (idx < candidates.length - 1) {
@@ -114,31 +125,37 @@ function Card({ href, title, candidates, showLabels, priority = false }) {
   };
 
   return (
-    <div className="group relative aspect-[4/5] rounded-xl ring-1 ring-dark/10 hover:ring-brand/40 hover:shadow-lg transition-all duration-300 ease-out bg-white/70 dark:bg-dark/30 backdrop-blur animate-float">
+    <div ref={ref} className="group relative aspect-[4/5] rounded-xl ring-1 ring-dark/10 hover:ring-brand/40 hover:shadow-lg transition-all duration-300 ease-out bg-white/70 dark:bg-dark/30 backdrop-blur animate-float">
       <Link href={href} className="absolute inset-0 rounded-xl overflow-hidden" aria-label={`Explore ${title}`}>
-        {/* Skeleton while loading */}
-        {isLoading && (
+        {/* Skeleton while loading or not in view */}
+        {(isLoading || !shouldLoad) && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-100" aria-label="Loading image">
             <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
-        <Image
-          src={src}
-          alt={title}
-          fill
+        
+        {/* Only render image when it should load */}
+        {shouldLoad && (
+          <Image
+            src={src}
+            alt={title}
+            fill
             /* sizes tuned for 3->6 column responsive grid */
-          sizes="(max-width:640px) 33vw, (max-width:1024px) 16vw, 12vw"
-          priority={priority}
-          placeholder="blur"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9JyNlZWYnIC8+PC9zdmc+"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          onError={handleImageError}
-          onLoadingComplete={handleImageLoad}
-          fetchPriority={priority ? 'high' : 'auto'}
-        />
+            sizes="(max-width:640px) 33vw, (max-width:1024px) 16vw, 12vw"
+            priority={priority}
+            loading={priority ? 'eager' : 'lazy'}
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9JyNlZWYnIC8+PC9zdmc+"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            onError={handleImageError}
+            onLoad={handleImageLoad}
+            fetchPriority={priority ? 'high' : 'low'}
+            quality={75}
+          />
+        )}
         
         {/* Error state - show title when no image loads */}
-        {hasError && (
+        {hasError && shouldLoad && (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary to-secondary text-white text-sm font-medium p-2 text-center">
             {title}
           </div>
@@ -162,6 +179,7 @@ const DestinationsRow = ({
   category = 'domestic',
   className = '',
   showLabels = true,
+  enableIntersectionObserver = true,
 }) => {
   const prefix = category === 'international' ? '/category/international/destination' : '/category/domestic/destination';
 
@@ -202,6 +220,7 @@ const DestinationsRow = ({
               candidates={candidates}
               showLabels={showLabels}
               priority={index < 6}
+              enableLazyLoad={enableIntersectionObserver}
             />
           );
         })}

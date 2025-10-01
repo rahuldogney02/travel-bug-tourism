@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getOptimizedImageProps } from '../../../utils/imageOptimization';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown, FiMapPin } from 'react-icons/fi';
 import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa';
@@ -103,7 +104,19 @@ const Header = () => {
           {/* Left: Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/image/travelbuglogo.png" alt="Travel Bug" width={150} height={50} className="h-12 w-auto" priority />
+              <Image 
+                {...getOptimizedImageProps({
+                  src: "/image/travelbuglogo.png",
+                  alt: "Travel Bug",
+                  width: 150,
+                  height: 50,
+                  priority: true, // Logo should load immediately
+                  quality: 90, // High quality for logo
+                  sizes: "150px",
+                  enableBlur: false // No blur for logo
+                })}
+                className="h-12 w-auto" 
+              />
             </Link>
           </div>
 

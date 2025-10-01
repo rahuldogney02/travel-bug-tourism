@@ -4,6 +4,7 @@ import "../lib/fontawesome"; // Import FontAwesome configuration
 import Topbar from "./components/layout/Topbar";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header/Header";
+import { ImagePerformanceMonitor } from "./utils/imagePerformanceMonitor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,9 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        
+        {/* Image Performance Monitor (Development Only) */}
+        <ImagePerformanceMonitor />
         
         {/* Performance monitoring script */}
         <script

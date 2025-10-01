@@ -1,13 +1,23 @@
+"use client";
+
 import Image from 'next/image';
+import { getOptimizedImageProps } from '../../utils/imageOptimization';
+import { useIntersectionObserver } from '../../hooks/useImageOptimization';
 import brandsData from '../../data/brands.json';
 
 const Brands = () => {
+  const [ref, isIntersecting, hasIntersected] = useIntersectionObserver();
+  
   return (
-    <div className="block" style={{
-      background: 'linear-gradient(135deg, #11664d 0%, #173334 55%, #11664d 100%)',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <div 
+      ref={ref}
+      className="block" 
+      style={{
+        background: 'linear-gradient(135deg, #11664d 0%, #173334 55%, #11664d 100%)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
       {/* Animated floating shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div 
@@ -76,12 +86,53 @@ const Brands = () => {
           <div className="p-0">
             <div className="marquee-container overflow-hidden">
               <div className="marquee-content flex flex-nowrap gap-2 sm:gap-3 md:gap-4 items-center animate-marquee">
-                {brandsData.map((brand, index) => (
-                  <Image key={index} src={brand.src} className="shrink-0 h-8 sm:h-10 md:h-12 lg:h-14 w-auto hover:scale-110 transition-transform duration-300" loading="lazy" alt={brand.alt} width={120} height={60} sizes="(max-width: 767px) 64px, (max-width: 1023px) 96px, 120px" />
-                ))}
-                {brandsData.map((brand, index) => (
-                  <Image key={`dup-${index}`} src={brand.src} className="shrink-0 h-8 sm:h-10 md:h-12 lg:h-14 w-auto hover:scale-110 transition-transform duration-300" loading="lazy" alt={brand.alt} width={120} height={60} sizes="(max-width: 767px) 64px, (max-width: 1023px) 96px, 120px" />
-                ))}
+                {/* Only render images when component is in view */}
+                {(hasIntersected || isIntersecting) && (
+                  <>
+                    {brandsData.map((brand, index) => (
+                      <Image 
+                        key={index} 
+                        {...getOptimizedImageProps({
+                          src: brand.src,
+                          alt: brand.alt,
+                          width: 120,
+                          height: 60,
+                          priority: false,
+                          quality: 70, // Lower quality for brand logos
+                          sizes: "(max-width: 767px) 64px, (max-width: 1023px) 96px, 120px",
+                          enableBlur: true,
+                          blurColor: "#f3f4f6"
+                        })}
+                        className="shrink-0 h-8 sm:h-10 md:h-12 lg:h-14 w-auto hover:scale-110 transition-transform duration-300" 
+                      />
+                    ))}
+                    {brandsData.map((brand, index) => (
+                      <Image 
+                        key={`dup-${index}`} 
+                        {...getOptimizedImageProps({
+                          src: brand.src,
+                          alt: brand.alt,
+                          width: 120,
+                          height: 60,
+                          priority: false,
+                          quality: 70,
+                          sizes: "(max-width: 767px) 64px, (max-width: 1023px) 96px, 120px",
+                          enableBlur: true,
+                          blurColor: "#f3f4f6"
+                        })}
+                        className="shrink-0 h-8 sm:h-10 md:h-12 lg:h-14 w-auto hover:scale-110 transition-transform duration-300" 
+                      />
+                    ))}
+                  </>
+                )}
+                {/* Loading placeholder when not in view */}
+                {!hasIntersected && !isIntersecting && (
+                  <div className="flex gap-4 items-center animate-pulse">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                      <div key={i} className="bg-white/20 rounded h-8 sm:h-10 md:h-12 lg:h-14 w-16 sm:w-20 md:w-24 lg:w-28"></div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
