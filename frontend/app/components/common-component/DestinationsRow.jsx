@@ -18,11 +18,11 @@ const KNOWN_INTERNATIONAL = [
 // case + space + underscore inconsistencies on case-sensitive prod (Vercel).
 // If you rename files to consistent lowercase-hyphen forms you can delete this.
 const DESTINATION_FILENAME_MAP = {
-  // Domestic
+  // Domestic (map to actual file stems exactly as in /public)
   'amritsar': 'Amritsar',
   'coorg': 'coorg',
-  'darjeeling-gangtok': 'Darjeling', // NOTE: file is missing full combo; consider replacing image
-  'delhi-agra-jaipur': 'Delhi',       // Partial representative image only
+  'darjeling': 'Darjeling', // correct misspelling in data vs asset capitalization
+  'delhi-agra-jaipur': 'Delhi',       // representative image
   'goa': 'goa',
   'himachal-pradesh': 'himachal pradesh',
   'jammu-kashmir': 'Jammu_Kashmir',
@@ -69,18 +69,21 @@ const generateImageCandidates = (category, item) => {
   const slug = (item?.slug || slugify(item?.title || '')).toLowerCase();
   const mappedStem = DESTINATION_FILENAME_MAP[slug];
 
-  // Build a minimal set of safe stems to try
+  // Build a concise but resilient stem set
   const stems = new Set();
-  if (mappedStem) stems.add(mappedStem);
-  // canonical lowercase hyphen version
-  stems.add(slug);
-  // If mapped has spaces / underscores, also try normalized hyphen + lowercase
+  if (mappedStem) stems.add(mappedStem);            // exact asset stem
+  stems.add(slug);                                  // raw slug lowercase
+  // Capitalized variant (many files start with capital letter)
+  const capitalized = slug.charAt(0).toUpperCase() + slug.slice(1);
+  stems.add(capitalized);
   if (mappedStem) {
-    const normalized = mappedStem.replace(/[ _]+/g, '-').toLowerCase();
-    stems.add(normalized);
+    // space + underscore variants if mapping includes them
+    if (mappedStem.includes(' ')) stems.add(mappedStem.replace(/ /g, '-').toLowerCase());
+    if (mappedStem.includes('_')) stems.add(mappedStem.replace(/_/g, '-').toLowerCase());
   }
 
-  const exts = ['webp', 'svg', 'png', 'jpg']; // order: webp preferred, then svg (many assets), fallback raster
+  // Order extensions by what actually exists in repo (svg, png, jpg). Drop webp (not present) to avoid 404s.
+  const exts = ['svg', 'png', 'jpg'];
   stems.forEach(stem => {
     exts.forEach(ext => list.push(`/image/destination/${category}/${stem}.${ext}`));
   });
@@ -111,7 +114,7 @@ function Card({ href, title, candidates, showLabels, priority = false }) {
   };
 
   return (
-    <div className="group relative aspect-square rounded-xl ring-1 ring-dark/10 hover:ring-brand/40 hover:shadow-lg transition-all duration-300 ease-out bg-white/70 dark:bg-dark/30 backdrop-blur animate-float">
+    <div className="group relative aspect-[4/5] rounded-xl ring-1 ring-dark/10 hover:ring-brand/40 hover:shadow-lg transition-all duration-300 ease-out bg-white/70 dark:bg-dark/30 backdrop-blur animate-float">
       <Link href={href} className="absolute inset-0 rounded-xl overflow-hidden" aria-label={`Explore ${title}`}>
         {/* Skeleton while loading */}
         {isLoading && (

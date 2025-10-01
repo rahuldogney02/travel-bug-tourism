@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -10,6 +10,12 @@ const About = ({
   containerClass = "",
   imageFirst = false,
 }) => {
+  const [aboutImageError, setAboutImageError] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },

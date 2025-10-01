@@ -36,16 +36,20 @@ const Explore = () => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  // Auto-rotate every 10 seconds on mobile
+  // Auto-rotate every 12 seconds on mobile
   useEffect(() => {
     if (!isAutoPlay) return;
     
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % exploreData.length);
-    }, 10000);
+      setCurrentSlide((prev) => {
+        const nextSlide = (prev + 1) % exploreData.length;
+        console.log(`Auto-rotating from slide ${prev} to ${nextSlide}`); // Debug log
+        return nextSlide;
+      });
+    }, 9000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlay]);
+  }, [isAutoPlay, exploreData.length]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e) => {
@@ -253,6 +257,8 @@ const Explore = () => {
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
+              onMouseEnter={() => setIsAutoPlay(false)} // Pause on hover
+              onMouseLeave={() => setIsAutoPlay(true)}  // Resume on leave
             >
               <AnimatePresence mode="wait" custom={currentSlide}>
                 <motion.div
@@ -364,13 +370,13 @@ const Explore = () => {
             {/* Auto-play Progress Bar */}
             <div className="mt-3 w-full bg-secondary rounded-full h-1 overflow-hidden">
               <motion.div
+                key={`progress-${currentSlide}-${isAutoPlay}`} // Key to reset animation on slide change
                 className="h-full bg-primary rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: isAutoPlay ? "100%" : "0%" }}
                 transition={{ 
-                  duration: isAutoPlay ? 10 : 0,
-                  ease: "linear",
-                  repeat: isAutoPlay ? Infinity : 0
+                  duration: isAutoPlay ? 12 : 0,
+                  ease: "linear"
                 }}
               />
             </div>
