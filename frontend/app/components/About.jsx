@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { getOptimizedImageProps } from "../utils/imageOptimization";
+import { useIntersectionObserver } from "../hooks/useImageOptimization";
 
 const About = ({
   variant = "default",
@@ -12,6 +14,7 @@ const About = ({
 }) => {
   const [aboutImageError, setAboutImageError] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [ref, isIntersecting, hasIntersected] = useIntersectionObserver();
 
   useEffect(() => {
     setIsClient(true);
@@ -97,6 +100,7 @@ const About = ({
             {...(showAnimation && {
               variants: imageVariants,
             })}
+            ref={ref}
           >
             <div className="relative">
               {/* Decorative elements */}
@@ -106,15 +110,30 @@ const About = ({
               {/* Main image container */}
               <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
                 <div className="aspect-square relative">
-                  <Image
-                    src="/image/about/about_us.png"
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    alt="Travel Bug Tourism - Plan Your Trip With Us"
-                    priority={false}
-                  />
+                  {/* Only render image when in view or has intersected */}
+                  {(hasIntersected || isIntersecting) && (
+                    <Image
+                      {...getOptimizedImageProps({
+                        src: "/image/about/about_us.png",
+                        alt: "Travel Bug Tourism - Plan Your Trip With Us",
+                        width: 500,
+                        height: 500,
+                        priority: false,
+                        quality: 80,
+                        sizes: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw",
+                        enableBlur: true,
+                        blurColor: "#f8fafc"
+                      })}
+                      className="w-full h-full object-cover"
+                      onError={() => setAboutImageError(true)}
+                    />
+                  )}
+                  {/* Loading skeleton */}
+                  {!hasIntersected && !isIntersecting && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                      <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                  )}
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#11664d]/20 via-transparent to-transparent"></div>
                 </div>
