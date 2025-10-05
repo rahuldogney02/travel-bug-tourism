@@ -1,4 +1,5 @@
 import bundleAnalyzer from '@next/bundle-analyzer';
+import WebpackObfuscator from 'webpack-obfuscator';
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -6,6 +7,15 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable SWC minification for better performance
+  swcMinify: true,
+  
+  // Remove console logs in production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn']
+    } : false,
+  },
   // Enable experimental features for better performance
   experimental: {
     optimizeCss: true,
@@ -60,7 +70,25 @@ const nextConfig = {
   },
   
   // Webpack optimizations
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
+    // Only apply obfuscation in production and client-side
+    if (!dev && !isServer && process.env.NODE_ENV === 'production') {
+      config.plugins.push(
+        new WebpackObfuscator({
+          rotateStringArray: true,
+          stringArray: true,
+          stringArrayThreshold: 0.8,
+          transformObjectKeys: true,
+          unicodeEscapeSequence: false,
+          identifierNamesGenerator: 'mangled-shuffled',
+          // Don't obfuscate reserved names
+          reservedNames: ['React', 'ReactDOM', 'next', '__next', 'window', 'document'],
+          // Exclude certain files from obfuscation
+          exclude: [/node_modules/, /\.min\.js$/],
+        })
+      );
+    }
+    
     // Add bundle optimization
     if (!isServer) {
       // Ensure splitChunks is properly initialized

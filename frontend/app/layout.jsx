@@ -45,6 +45,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   return (
     <html lang="en">
       <head>
@@ -52,6 +54,10 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#C89364" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Conditional CSS loading for production obfuscation */}
+        {isProduction && (
+          <link rel="stylesheet" href="/obfuscated.css" />
+        )}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
