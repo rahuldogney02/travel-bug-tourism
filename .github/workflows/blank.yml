@@ -1,4 +1,4 @@
-name: Frontend Travel Bug Tourism CI
+name: Travel Bug Tourism CI
 
 on:
   push:
