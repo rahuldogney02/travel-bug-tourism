@@ -48,6 +48,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-version: latest
+          working-directory: ${{ env.WORKING_DIRECTORY }}
   deploy:
     runs-on: ubuntu-latest
 
